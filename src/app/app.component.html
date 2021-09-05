@@ -1,0 +1,54 @@
+<mat-toolbar color="primary">
+  <button mat-button routerLink="/principal">Principal</button>
+
+  <button mat-button [matMenuTriggerFor]="usuario">Usuario</button>
+  <mat-menu #usuario="matMenu">
+    <button mat-menu-item routerLink="/listar-rol">Rol</button>
+    <button mat-menu-item routerLink="/listar-usuario">Usuario</button>
+  </mat-menu>
+
+  <button mat-button [matMenuTriggerFor]="docencia">Docencia</button>
+  <mat-menu #docencia="matMenu">
+    <button mat-menu-item routerLink="/listar-escuela">Escuela</button>
+    <button mat-menu-item routerLink="/listar-facultad">Facultad</button>
+    <button mat-menu-item routerLink="/listar-asignatura">Asignatura</button>
+    <button mat-menu-item routerLink="/listar-nivelensennanza">Nivel de Enseñanza</button>
+    <button mat-menu-item routerLink="/listar-grupo-docente">Grupo Docente</button>
+    <button mat-menu-item routerLink="/listar-grupoclase">Grupo Clase</button>
+    <button mat-menu-item routerLink="/listar-gradoescolar">Grado Escolar</button>
+    <button mat-menu-item routerLink="/listar-profesor">Profesor</button>
+    <button mat-menu-item routerLink="/listar-nombreanno">Nombre del Año</button>
+    <button mat-menu-item routerLink="/listar-militancia">Militancia</button>
+  </mat-menu>
+
+  <button mat-button [matMenuTriggerFor]="estudiante">Estudiante</button>
+  <mat-menu #estudiante="matMenu">
+    <button mat-menu-item routerLink="/listar-estudiante">Estudiante</button>
+    <button mat-menu-item routerLink="/listar-valorevaluacion">Valor de la Evaluación</button>
+    <button mat-menu-item routerLink="/listar-estado">Estado</button>
+  </mat-menu>
+
+  <button mat-button [matMenuTriggerFor]="provincia">Provincia</button>
+  <mat-menu #provincia="matMenu">
+    <button mat-menu-item routerLink="/listar-provincia">Provincia</button>
+    <button mat-menu-item routerLink="/listar-municipio">Municipio</button>
+  </mat-menu>
+
+  <button mat-button [matMenuTriggerFor]="observacion">Observaciones</button>
+  <mat-menu #observacion="matMenu">
+    <button mat-menu-item routerLink="/listar-observacion">Observación</button>
+  </mat-menu>
+
+  <button mat-button [matMenuTriggerFor]="actas">Actas</button>
+  <mat-menu #actas="matMenu">
+    <button mat-menu-item routerLink="/listar-activoalumno">Activo de Alumnos</button>
+    <button mat-menu-item routerLink="/listar-reunionordinaria">Reunión Ordinaria</button>
+    <button mat-menu-item routerLink="/listar-visitaescuela">Visitas a Escuelas</button>
+  </mat-menu>
+
+  <button mat-button [matMenuTriggerFor]="reportes">Reportes</button>
+  <mat-menu #reportes="matMenu">
+    <button mat-menu-item routerLink="/listar-reporte">Reportes</button>
+  </mat-menu>
+</mat-toolbar>
+<router-outlet></router-outlet>

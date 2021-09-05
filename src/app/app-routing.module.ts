@@ -1,0 +1,197 @@
+import {NgModule} from '@angular/core';
+import {RouterModule, Routes} from '@angular/router';
+import {PrincipalComponent} from './principal/principal.component';
+import {AdicionarAsignaturaComponent} from './asignatura/adicionar-asignatura/adicionar-asignatura.component';
+import {ListarAsignaturaComponent} from './asignatura/listar-asignatura/listar-asignatura.component';
+import {EditarAsignaturaComponent} from './asignatura/editar-asignatura/editar-asignatura.component';
+import {AdicionarEstadoComponent} from './estado/adicionar-estado/adicionar-estado.component';
+import {ListarEstadoComponent} from './estado/listar-estado/listar-estado.component';
+import {EditarEstadoComponent} from './estado/editar-estado/editar-estado.component';
+import {AutenticarComponent} from './autenticar/autenticar.component';
+import {AdicionarRolComponent} from './rol/adicionar-rol/adicionar-rol.component';
+import {ListarRolComponent} from './rol/listar-rol/listar-rol.component';
+import {EditarRolComponent} from './rol/editar-rol/editar-rol.component';
+import {AdicionarUsuarioComponent} from './usuario/adicionar-usuario/adicionar-usuario.component';
+import {ListarUsuarioComponent} from './usuario/listar-usuario/listar-usuario.component';
+import {EditarUsuarioComponent} from './usuario/editar-usuario/editar-usuario.component';
+import {AdicionarFacultadComponent} from './facultad/adicionar-facultad/adicionar-facultad.component';
+import {ListarFacultadComponent} from './facultad/listar-facultad/listar-facultad.component';
+import {EditarFacultadComponent} from './facultad/editar-facultad/editar-facultad.component';
+import {AdicionarNivelEnsennanzaComponent} from './nivel-ensennanza/adicionar-nivelensennanza/adicionar-nivel-ensennanza.component';
+import {ListarNivelEnsennanzaComponent} from './nivel-ensennanza/listar-nivelensennanza/listar-nivel-ensennanza.component';
+import {EditarNivelEnsennanzaComponent} from './nivel-ensennanza/editar-nivelensennanza/editar-nivel-ensennanza.component';
+import {AdicionarMilitanciaComponent} from './militancia/adicionar-militancia/adicionar-militancia.component';
+import {ListarMilitanciaComponent} from './militancia/listar-militancia/listar-militancia.component';
+import {EditarMilitanciaComponent} from './militancia/editar-militancia/editar-militancia.component';
+import {AdicionarNombreAnnoComponent} from './nombre-anno/adicionar-nombre-anno/adicionar-nombre-anno.component';
+import {ListarNombreAnnoComponent} from './nombre-anno/listar-nombre-anno/listar-nombre-anno.component';
+import {EditarNombreAnnoComponent} from './nombre-anno/editar-nombre-anno/editar-nombre-anno.component';
+import {AdicionarObservacionComponent} from './observacion/adicionar-observacion/adicionar-observacion.component';
+import {ListarObservacionComponent} from './observacion/listar-observacion/listar-observacion.component';
+import {EditarObservacionComponent} from './observacion/editar-observacion/editar-observacion.component';
+import {AdicionarProvinciaComponent} from './provincia/adicionar-provincia/adicionar-provincia.component';
+import {ListarProvinciaComponent} from './provincia/listar-provincia/listar-provincia.component';
+import {EditarProvinciaComponent} from './provincia/editar-provincia/editar-provincia.component';
+import {AdicionarValorEvaluacionComponent} from './valor-evaluacion/adicionar-valor-evaluacion/adicionar-valor-evaluacion.component';
+import {ListarValorEvaluacionComponent} from './valor-evaluacion/listar-valore-valuacion/listar-valor-evaluacion.component';
+import {EditarValorEvaluacionComponent} from './valor-evaluacion/editar-valor-evaluacion/editar-valor-evaluacion.component';
+import {AdicionarMunicipioComponent} from './municipio/adicionar-municipio/adicionar-municipio.component';
+import {ListarMunicipioComponent} from './municipio/listar-municipio/listar-municipio.component';
+import {EditarMunicipioComponent} from './municipio/editar-municipio/editar-municipio.component';
+import {AdicionarGrupoDocenteComponent} from './grupo-docente/adicionar-grupo-docente/adicionar-grupo-docente.component';
+import {ListarGrupoDocenteComponent} from './grupo-docente/listar-grupo-docente/listar-grupo-docente.component';
+import {EditarGrupoDocenteComponent} from './grupo-docente/editar-grupo-docente/editar-grupo-docente.component';
+import {AdicionarEscuelaComponent} from './escuela/adicionar-escuela/adicionar-escuela.component';
+import {ListarEscuelaComponent} from './escuela/listar-escuela/listar-escuela.component';
+import {EditarEscuelaComponent} from './escuela/editar-escuela/editar-escuela.component';
+import {AdicionarEstudianteComponent} from './estudiante/adicionar-estudiante/adicionar-estudiante.component';
+import {ListarEstudianteComponent} from './estudiante/listar-estudiante/listar-estudiante.component';
+import {EditarEstudianteComponent} from './estudiante/editar-estudiante/editar-estudiante.component';
+import {AdicionarEvaluacionComponent} from './estudiante/adicionar-evaluacion/adicionar-evaluacion.component';
+import {EditarEvaluacionComponent} from './estudiante/editar-evaluacion/editar-evaluacion.component';
+import {AdicionarGradoEscolarComponent} from './grado-escolar/adicionar-grado-escolar/adicionar-grado-escolar.component';
+import {ListarGradoEscolarComponent} from './grado-escolar/listar-grado-escolar/listar-grado-escolar.component';
+import {EditarGradoEscolarComponent} from './grado-escolar/editar-grado-escolar/editar-grado-escolar.component';
+import {AdicionarGrupoClaseComponent} from './grupo-clase/adicionar-grupo-clase/adicionar-grupo-clase.component';
+import {ListarGrupoClaseComponent} from './grupo-clase/listar-grupo-clase/listar-grupo-clase.component';
+import {EditarGrupoClaseComponent} from './grupo-clase/editar-grupo-clase/editar-grupo-clase.component';
+import {AdicionarActivoAlumnoComponent} from './activo-alumnos/adicionar-activo-alumno/adicionar-activo-alumno.component';
+import {ListarActivoAlumnoComponent} from './activo-alumnos/listar-activo-alumno/listar-activo-alumno.component';
+import {EditarActivoAlumnoComponent} from './activo-alumnos/editar-activo-alumno/editar-activo-alumno.component';
+import {AdicionarReunionOrdinariaComponent} from './reunion-ordinaria/adicionar-reunion-ordinaria/adicionar-reunion-ordinaria.component';
+import {ListarReunionOrdinariaComponent} from './reunion-ordinaria/listar-reunion-ordinaria/listar-reunion-ordinaria.component';
+import {EditarReunionOrdinariaComponent} from './reunion-ordinaria/editar-reunion-ordinaria/editar-reunion-ordinaria.component';
+import {AdicionarProfesorComponent} from './profesor/adicionar-profesor/adicionar-profesor.component';
+import {ListarProfesorComponent} from './profesor/listar-profesor/listar-profesor.component';
+import {EditarProfesorComponent} from './profesor/editar-profesor/editar-profesor.component';
+import {ListarReportesComponent} from './reportes/listar-reportes/listar-reportes.component';
+import {AdicionarVisitaEscuelaComponent} from './visita-escuela/adicionar-visita-escuela/adicionar-visita-escuela.component';
+import {ListarVisitaEscuelaComponent} from './visita-escuela/listar-visita-escuela/listar-visita-escuela.component';
+import {EditarVisitaEscuelaComponent} from './visita-escuela/editar-visita-escuela/editar-visita-escuela.component';
+import {MostrarReportesComponent} from './reportes/mostrar-reportes/mostrar-reportes.component';
+import {MostrarActivoAlumnoComponent} from './activo-alumnos/mostrar-activo-alumno/mostrar-activo-alumno.component';
+import {MostrarEscuelaComponent} from './escuela/mostrar-escuela/mostrar-escuela.component';
+import {MostrarEstudianteComponent} from './estudiante/mostrar-estudiante/mostrar-estudiante.component';
+import {MostrarObservacionComponent} from './observacion/mostrar-observacion/mostrar-observacion.component';
+import {AdicionarRespuestaobservacionComponent} from './observacion/adicionar-respuestaobservacion/adicionar-respuestaobservacion.component';
+import {MostrarProfesorComponent} from './profesor/mostrar-profesor/mostrar-profesor.component';
+import {MostrarUsuarioComponent} from './usuario/mostrar-usuario/mostrar-usuario.component';
+import {EditarRespuestaobservacionComponent} from './observacion/editar-respuestaobservacion/editar-respuestaobservacion.component';
+import {MostrarVisitaEscuelaComponent} from './visita-escuela/mostrar-visita-escuela/mostrar-visita-escuela.component';
+import {MostrarReunionOrdinariaComponent} from './reunion-ordinaria/mostrar-reunion-ordinaria/mostrar-reunion-ordinaria.component';
+import {MostrarAsignaturaComponent} from './asignatura/mostrar-asignatura/mostrar-asignatura.component';
+import {MostrarEstadoComponent} from './estado/mostrar-estado/mostrar-estado.component';
+import {MostrarFacultadComponent} from './facultad/mostrar-facultad/mostrar-facultad.component';
+import {MostrarGradoEscolarComponent} from './grado-escolar/mostrar-grado-escolar/mostrar-grado-escolar.component';
+import {MostrarGrupoClaseComponent} from './grupo-clase/mostrar-grupo-clase/mostrar-grupo-clase.component';
+import {MostrarGrupoDocenteComponent} from './grupo-docente/mostrar-grupo-docente/mostrar-grupo-docente.component';
+import {MostrarMilitanciaComponent} from './militancia/mostrar-militancia/mostrar-militancia.component';
+import {MostrarMunicipioComponent} from './municipio/mostrar-municipio/mostrar-municipio.component';
+import {MostrarNivelEnsennanzaComponent} from './nivel-ensennanza/mostrar-nivel-ensennanza/mostrar-nivel-ensennanza.component';
+import {MostrarNombreAnnoComponent} from './nombre-anno/mostrar-nombre-anno/mostrar-nombre-anno.component';
+import {MostrarProvinciaComponent} from './provincia/mostrar-provincia/mostrar-provincia.component';
+import {MostrarRolComponent} from './rol/mostrar-rol/mostrar-rol.component';
+import {MostrarValorEvaluacionComponent} from './valor-evaluacion/mostrar-valor-evaluacion/mostrar-valor-evaluacion.component';
+
+const routes: Routes = [
+  {path: '', redirectTo: 'autenticar', pathMatch: 'full'},
+  {path: 'autenticar', component: AutenticarComponent},
+  {path: 'principal', component: PrincipalComponent},
+  {path: 'adicionar-asignatura', component: AdicionarAsignaturaComponent},
+  {path: 'listar-asignatura', component: ListarAsignaturaComponent},
+  {path: 'editar-asignatura', component: EditarAsignaturaComponent},
+  {path: 'mostrar-asignatura', component: MostrarAsignaturaComponent},
+  {path: 'adicionar-estado', component: AdicionarEstadoComponent},
+  {path: 'listar-estado', component: ListarEstadoComponent},
+  {path: 'editar-estado', component: EditarEstadoComponent},
+  {path: 'mostrar-estado', component: MostrarEstadoComponent},
+  {path: 'adicionar-rol', component: AdicionarRolComponent},
+  {path: 'listar-rol', component: ListarRolComponent},
+  {path: 'editar-rol', component: EditarRolComponent},
+  {path: 'mostrar-rol', component: MostrarRolComponent},
+  {path: 'adicionar-usuario', component: AdicionarUsuarioComponent},
+  {path: 'listar-usuario', component: ListarUsuarioComponent},
+  {path: 'editar-usuario', component: EditarUsuarioComponent},
+  {path: 'mostrar-usuario', component: MostrarUsuarioComponent},
+  {path: 'adicionar-facultad', component: AdicionarFacultadComponent},
+  {path: 'listar-facultad', component: ListarFacultadComponent},
+  {path: 'editar-facultad', component: EditarFacultadComponent},
+  {path: 'mostrar-facultad', component: MostrarFacultadComponent},
+  {path: 'adicionar-nivelensennanza', component: AdicionarNivelEnsennanzaComponent},
+  {path: 'listar-nivelensennanza', component: ListarNivelEnsennanzaComponent},
+  {path: 'editar-nivelensennanza', component: EditarNivelEnsennanzaComponent},
+  {path: 'mostrar-nivelensennanza', component: MostrarNivelEnsennanzaComponent},
+  {path: 'adicionar-militancia', component: AdicionarMilitanciaComponent},
+  {path: 'listar-militancia', component: ListarMilitanciaComponent},
+  {path: 'editar-militancia', component: EditarMilitanciaComponent},
+  {path: 'mostrar-militancia', component: MostrarMilitanciaComponent},
+  {path: 'adicionar-nombreanno', component: AdicionarNombreAnnoComponent},
+  {path: 'listar-nombreanno', component: ListarNombreAnnoComponent},
+  {path: 'editar-nombreanno', component: EditarNombreAnnoComponent},
+  {path: 'mostrar-nombreanno', component: MostrarNombreAnnoComponent},
+  {path: 'adicionar-observacion', component: AdicionarObservacionComponent},
+  {path: 'listar-observacion', component: ListarObservacionComponent},
+  {path: 'editar-observacion', component: EditarObservacionComponent},
+  {path: 'mostrar-observacion', component: MostrarObservacionComponent},
+  {path: 'adicionar-provincia', component: AdicionarProvinciaComponent},
+  {path: 'listar-provincia', component: ListarProvinciaComponent},
+  {path: 'editar-provincia', component: EditarProvinciaComponent},
+  {path: 'mostrar-provincia', component: MostrarProvinciaComponent},
+  {path: 'adicionar-valorevaluacion', component: AdicionarValorEvaluacionComponent},
+  {path: 'listar-valorevaluacion', component: ListarValorEvaluacionComponent},
+  {path: 'editar-valorevaluacion', component: EditarValorEvaluacionComponent},
+  {path: 'mostrar-valorevaluacion', component: MostrarValorEvaluacionComponent},
+  {path: 'adicionar-municipio', component: AdicionarMunicipioComponent},
+  {path: 'listar-municipio', component: ListarMunicipioComponent},
+  {path: 'editar-municipio', component: EditarMunicipioComponent},
+  {path: 'mostrar-municipio', component: MostrarMunicipioComponent},
+  {path: 'adicionar-grupo-docente', component: AdicionarGrupoDocenteComponent},
+  {path: 'listar-grupo-docente', component: ListarGrupoDocenteComponent},
+  {path: 'editar-grupo-docente', component: EditarGrupoDocenteComponent},
+  {path: 'mostrar-grupo-docente', component: MostrarGrupoDocenteComponent},
+  {path: 'adicionar-escuela', component: AdicionarEscuelaComponent},
+  {path: 'listar-escuela', component: ListarEscuelaComponent},
+  {path: 'editar-escuela', component: EditarEscuelaComponent},
+  {path: 'mostrar-escuela', component: MostrarEscuelaComponent},
+  {path: 'adicionar-estudiante', component: AdicionarEstudianteComponent},
+  {path: 'listar-estudiante', component: ListarEstudianteComponent},
+  {path: 'editar-estudiante', component: EditarEstudianteComponent},
+  {path: 'mostrar-estudiante', component: MostrarEstudianteComponent},
+  {path: 'adicionar-evaluacion', component: AdicionarEvaluacionComponent},
+  {path: 'editar-evaluacion', component: EditarEvaluacionComponent},
+  {path: 'adicionar-gradoescolar', component: AdicionarGradoEscolarComponent},
+  {path: 'listar-gradoescolar', component: ListarGradoEscolarComponent},
+  {path: 'editar-gradoescolar', component: EditarGradoEscolarComponent},
+  {path: 'mostrar-gradoescolar', component: MostrarGradoEscolarComponent},
+  {path: 'adicionar-grupoclase', component: AdicionarGrupoClaseComponent},
+  {path: 'listar-grupoclase', component: ListarGrupoClaseComponent},
+  {path: 'editar-grupoclase', component: EditarGrupoClaseComponent},
+  {path: 'mostrar-grupoclase', component: MostrarGrupoClaseComponent},
+  {path: 'adicionar-activoalumno', component: AdicionarActivoAlumnoComponent},
+  {path: 'listar-activoalumno', component: ListarActivoAlumnoComponent},
+  {path: 'editar-activoalumno', component: EditarActivoAlumnoComponent},
+  {path: 'mostrar-activoalumno', component: MostrarActivoAlumnoComponent},
+  {path: 'adicionar-reunionordinaria', component: AdicionarReunionOrdinariaComponent},
+  {path: 'listar-reunionordinaria', component: ListarReunionOrdinariaComponent},
+  {path: 'editar-reunionordinaria', component: EditarReunionOrdinariaComponent},
+  {path: 'mostrar-reunionordinaria', component: MostrarReunionOrdinariaComponent},
+  {path: 'adicionar-profesor', component: AdicionarProfesorComponent},
+  {path: 'listar-profesor', component: ListarProfesorComponent},
+  {path: 'editar-profesor', component: EditarProfesorComponent},
+  {path: 'mostrar-profesor', component: MostrarProfesorComponent},
+  {path: 'listar-reporte', component: ListarReportesComponent},
+  {path: 'mostrar-reporte', component: MostrarReportesComponent},
+  {path: 'adicionar-visitaescuela', component: AdicionarVisitaEscuelaComponent},
+  {path: 'listar-visitaescuela', component: ListarVisitaEscuelaComponent},
+  {path: 'editar-visitaescuela', component: EditarVisitaEscuelaComponent},
+  {path: 'mostrar-visitaescuela', component: MostrarVisitaEscuelaComponent},
+  {path: 'adicionar-respuestaobservacion', component: AdicionarRespuestaobservacionComponent},
+  {path: 'editar-respuestaobservacion', component: EditarRespuestaobservacionComponent}
+];
+
+@NgModule({
+  imports: [RouterModule.forRoot(routes)],
+  exports: [RouterModule]
+})
+export class AppRoutingModule {
+}

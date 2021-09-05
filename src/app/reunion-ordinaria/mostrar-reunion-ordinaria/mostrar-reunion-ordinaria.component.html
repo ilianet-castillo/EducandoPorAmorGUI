@@ -1,0 +1,43 @@
+<mat-card>
+  <mat-card-header>
+    <mat-card-title>Reunión ordinaria</mat-card-title>
+  </mat-card-header>
+  <mat-card-content>
+    <label>{{reunionOrdinaria?.titulo}}</label>
+    <br>
+    <label>{{formatoFecha(reunionOrdinaria?.fecha)}}</label>
+    <br>
+    <label>{{reunionOrdinaria?.lugar}}</label>
+    <br>
+    <label>{{reunionOrdinaria?.hora}}</label>
+    <br>
+    <label>{{reunionOrdinaria?.asistenciaEstudiantes}}</label>
+    <br>
+    <textarea cdkTextareaAutosize #autosize="cdkTextareaAutosize" disabled>{{reunionOrdinaria?.ordenDelDia}}</textarea>
+    <br>
+    <textarea cdkTextareaAutosize #autosize="cdkTextareaAutosize" disabled>{{reunionOrdinaria?.cuerpo}}</textarea>
+    <br>
+    <textarea cdkTextareaAutosize #autosize="cdkTextareaAutosize" disabled>{{reunionOrdinaria?.acuerdos}}</textarea>
+    <br>
+    <textarea cdkTextareaAutosize #autosize="cdkTextareaAutosize" disabled>{{reunionOrdinaria?.finalizacion}}</textarea>
+    <br>
+    <label>Profesores visitantes:</label>
+    <ul>
+      <li *ngFor="let profesor of reunionOrdinaria?.profesores">{{profesor.nombre}}</li>
+    </ul>
+    <br>
+    <label>{{reunionOrdinaria?.provincia?.nombre}}</label>
+    <br>
+    <mat-card-actions>
+      <button mat-icon-button title="Eliminar" (click)="eliminarReunionOrdinaria()">
+        <mat-icon svgIcon="minus"></mat-icon>
+      </button>
+      <button mat-icon-button title="Editar" (click)="editarReunionOrdinaria()">
+        <mat-icon svgIcon="pencil"></mat-icon>
+      </button>
+      <button mat-icon-button title="Salir" (click)="cancelar()">
+        <mat-icon svgIcon="cancel"></mat-icon>
+      </button>
+    </mat-card-actions>
+  </mat-card-content>
+</mat-card>

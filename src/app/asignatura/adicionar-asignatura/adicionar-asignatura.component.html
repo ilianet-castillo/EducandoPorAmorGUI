@@ -1,0 +1,27 @@
+<mat-card>
+  <mat-card-header>
+    <mat-card-title>Adicionar Asignatura</mat-card-title>
+  </mat-card-header>
+  <mat-card-content>
+    <form [formGroup]="addForm" (ngSubmit)="onSubmit()">
+      <mat-form-field>
+        <mat-label>Nombre:</mat-label>
+        <input matInput type="text" formControlName="nombre" autocomplete="off" required>
+      </mat-form-field>
+      <br>
+      <div>
+        <label for="habilitado">¿Habilitada?:</label>
+        <input type="checkbox" formControlName="habilitado" id="habilitado">
+      </div>
+      <br>
+      <mat-card-actions>
+        <button mat-raised-button title="Crear">
+          <mat-icon svgIcon="check"></mat-icon>
+        </button>
+        <button mat-raised-button title="Cancelar" (click)="cancelar()">
+          <mat-icon svgIcon="cancel"></mat-icon>
+        </button>
+      </mat-card-actions>
+    </form>
+  </mat-card-content>
+</mat-card>

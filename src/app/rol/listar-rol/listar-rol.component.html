@@ -1,0 +1,37 @@
+<mat-card>
+  <mat-card-header>
+    <mat-card-title>Lista de roles</mat-card-title>
+  </mat-card-header>
+  <mat-card-content>
+    <mat-form-field>
+      <input matInput (keyup)="buscar($event.target.value)" placeholder="Buscar por nombre">
+    </mat-form-field>
+    <mat-icon svgIcon="magnify"></mat-icon>
+    <table>
+      <thead>
+      <tr>
+        <th>Acciones</th>
+        <th>Rol</th>
+      </tr>
+      </thead>
+      <tbody>
+      <tr *ngFor="let rol of rolesPaginados">
+        <td>
+          <button mat-icon-button title="Mostrar" (click)="mostrarRol(rol)">
+            <mat-icon svgIcon="page-layout-body"></mat-icon>
+          </button>
+        </td>
+        <td>{{rol.nombre}}</td>
+      </tr>
+      </tbody>
+    </table>
+    <mat-paginator [length]="rolesFiltrados?.length" [pageSize]="tamannoPagina"
+                   [pageSizeOptions]="opcionesTamannoPagina" [showFirstLastButtons]="true"
+                   (page)="paginar($event)"></mat-paginator>
+  </mat-card-content>
+  <mat-card-actions>
+    <button mat-icon-button title="Adicionar" (click)="adicionarRol()">
+      <mat-icon svgIcon="plus"></mat-icon>
+    </button>
+  </mat-card-actions>
+</mat-card>

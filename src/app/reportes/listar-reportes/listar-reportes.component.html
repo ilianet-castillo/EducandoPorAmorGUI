@@ -1,0 +1,203 @@
+<mat-card>
+  <mat-card-header>
+    <mat-card-title>Reportes</mat-card-title>
+  </mat-card-header>
+  <mat-card-content>
+    <form [formGroup]="form">
+      <table>
+        <tr>
+          <td>
+            <button (click)="reportePorEstado()">Por estado</button>
+          </td>
+          <td>
+            <mat-form-field>
+              <mat-label>Estado:</mat-label>
+              <select matNativeControl formControlName="estado">
+                <option *ngFor="let estado of estados" [ngValue]="estado" [hidden]="!estado.habilitado">
+                  {{estado.nombre}}
+                </option>
+              </select>
+            </mat-form-field>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <button (click)="reportePorEscuela()">Por escuela</button>
+          </td>
+          <td>
+            <mat-form-field>
+              <mat-label>Escuela:</mat-label>
+              <select matNativeControl formControlName="escuela">
+                <option *ngFor="let escuela of escuelas" [ngValue]="escuela" [hidden]="!escuela.habilitado">
+                  {{escuela.nombre}}
+                </option>
+              </select>
+            </mat-form-field>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <button (click)="reportePorFacultad()">Por facultad</button>
+          </td>
+          <td>
+            <mat-form-field>
+              <mat-label>Facultad:</mat-label>
+              <select matNativeControl formControlName="facultad">
+                <option *ngFor="let facultad of facultades" [ngValue]="facultad" [hidden]="!facultad.habilitado">
+                  {{facultad.nombre}}
+                </option>
+              </select>
+            </mat-form-field>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <button (click)="reportePorGradoEscolar()">Por grado escolar</button>
+          </td>
+          <td>
+            <mat-form-field>
+              <mat-label>Grado escolar:</mat-label>
+              <select matNativeControl formControlName="gradoEscolar">
+                <option *ngFor="let gradoEscolar of gradoEscolares" [ngValue]="gradoEscolar"
+                        [hidden]="!gradoEscolar.habilitado">
+                  {{gradoEscolar.nombre}}
+                </option>
+              </select>
+            </mat-form-field>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <button (click)="reportePorMilitancia()">Por militancia</button>
+          </td>
+          <td>
+            <mat-form-field>
+              <mat-label>Militancia:</mat-label>
+              <select matNativeControl formControlName="militancia">
+                <option *ngFor="let militancia of militancias" [ngValue]="militancia" [hidden]="!militancia.habilitado">
+                  {{militancia.tipo}}
+                </option>
+              </select>
+            </mat-form-field>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <button (click)="reportePorNivelEnsennanza()">Por nivel de enseñanza</button>
+          </td>
+          <td>
+            <mat-form-field>
+              <mat-label>Nivel de enseñanza:</mat-label>
+              <select matNativeControl formControlName="nivelDeEnsennanza">
+                <option *ngFor="let nivelDeEnsennanza of nivelDeEnsennanzas" [ngValue]="nivelDeEnsennanza"
+                        [hidden]="!nivelDeEnsennanza.habilitado">{{nivelDeEnsennanza.nombre}}
+                </option>
+              </select>
+            </mat-form-field>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <button (click)="reportePorGradoEscolarDocencia()">Por grado escolar que imparte docencia</button>
+          </td>
+          <td>
+            <mat-form-field>
+              <mat-label>Grado escolar:</mat-label>
+              <select matNativeControl formControlName="gradoEscolarGrupo">
+                <option *ngFor="let gradoEscolarGrupo of gradoEscolares" [ngValue]="gradoEscolarGrupo"
+                        [hidden]="!gradoEscolarGrupo.habilitado">
+                  {{gradoEscolarGrupo.nombre}}
+                </option>
+              </select>
+            </mat-form-field>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <button (click)="reportePorAsignatura()">Por asignatura</button>
+          </td>
+          <td>
+            <mat-form-field>
+              <mat-label>Asignatura:</mat-label>
+              <select matNativeControl formControlName="asignatura">
+                <option *ngFor="let asignatura of asignaturas" [ngValue]="asignatura" [hidden]="!asignatura.habilitado">
+                  {{asignatura.nombre}}
+                </option>
+              </select>
+            </mat-form-field>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <button (click)="reportePorGradoEscolarFacultadMilitancia()">Por grado escolar, facultad y militancia
+            </button>
+          </td>
+          <td>
+            <mat-form-field>
+              <mat-label>Grado escolar:</mat-label>
+              <select matNativeControl formControlName="gradoEscolar1">
+                <option *ngFor="let gradoEscolar1 of gradoEscolares" [ngValue]="gradoEscolar1"
+                        [hidden]="!gradoEscolar1.habilitado">
+                  {{gradoEscolar1.nombre}}
+                </option>
+              </select>
+            </mat-form-field>
+            <mat-form-field>
+              <mat-label>Facultad:</mat-label>
+              <select matNativeControl formControlName="facultad1">
+                <option *ngFor="let facultad1 of facultades" [ngValue]="facultad1" [hidden]="!facultad1.habilitado">
+                  {{facultad1.nombre}}
+                </option>
+              </select>
+            </mat-form-field>
+            <mat-form-field>
+              <mat-label>Militancia:</mat-label>
+              <select matNativeControl formControlName="militancia1">
+                <option *ngFor="let militancia1 of militancias" [ngValue]="militancia1"
+                        [hidden]="!militancia1.habilitado">
+                  {{militancia1.tipo}}
+                </option>
+              </select>
+            </mat-form-field>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <button (click)="reportePorGradoEscolarNivelDeEnsennanzaAsignatura()">Por grado escolar, nivel de ensennanza
+              y asignatura
+            </button>
+          </td>
+          <td>
+            <mat-form-field>
+              <mat-label>Grado escolar:</mat-label>
+              <select matNativeControl formControlName="gradoEscolar2">
+                <option *ngFor="let gradoEscolar2 of gradoEscolares" [ngValue]="gradoEscolar2"
+                        [hidden]="!gradoEscolar2.habilitado">
+                  {{gradoEscolar2.nombre}}
+                </option>
+              </select>
+            </mat-form-field>
+            <mat-form-field>
+              <mat-label>Nivel de enseñanza:</mat-label>
+              <select matNativeControl formControlName="nivelDeEnsennanza2">
+                <option *ngFor="let nivelDeEnsennanza2 of nivelDeEnsennanzas" [ngValue]="nivelDeEnsennanza2"
+                        [hidden]="!nivelDeEnsennanza2.habilitado">
+                  {{nivelDeEnsennanza2.nombre}}
+                </option>
+              </select>
+            </mat-form-field>
+            <mat-form-field>
+              <mat-label>Asignatura:</mat-label>
+              <select matNativeControl formControlName="asignatura2">
+                <option *ngFor="let asignatura2 of asignaturas" [ngValue]="asignatura2"
+                        [hidden]="!asignatura2.habilitado">
+                  {{asignatura2.nombre}}
+                </option>
+              </select>
+            </mat-form-field>
+          </td>
+        </tr>
+      </table>
+    </form>
+  </mat-card-content>
+</mat-card>

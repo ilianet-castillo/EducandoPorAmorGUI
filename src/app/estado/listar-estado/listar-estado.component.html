@@ -1,0 +1,41 @@
+<mat-card>
+  <mat-card-header>
+    <mat-card-title>Lista de estado</mat-card-title>
+  </mat-card-header>
+  <mat-card-content>
+    <mat-form-field>
+      <input matInput (keyup)="buscar($event.target.value)" placeholder="Buscar por nombre">
+    </mat-form-field>
+    <mat-icon svgIcon="magnify"></mat-icon>
+    <table>
+      <thead>
+      <tr>
+        <th>Acciones</th>
+        <th>Nombre</th>
+        <th>Habilitado</th>
+      </tr>
+      </thead>
+      <tbody>
+      <tr *ngFor="let estado of estadosPaginados">
+        <td>
+          <button mat-icon-button title="Mostrar" (click)="mostrarEstado(estado)">
+            <mat-icon svgIcon="page-layout-body"></mat-icon>
+          </button>
+        </td>
+        <td>{{estado.nombre}}</td>
+        <td>{{estado.habilitado}}</td>
+      </tr>
+      </tbody>
+    </table>
+    <mat-paginator [length]="estadosFiltrados?.length" [pageSize]="tamannoPagina"
+                   [pageSizeOptions]="opcionesTamannoPagina" [showFirstLastButtons]="true"
+                   (page)="paginar($event)"></mat-paginator>
+  </mat-card-content>
+  <mat-card-actions>
+    <button mat-icon-button title="Adicionar" (click)="adicionarEstado()">
+      <mat-icon svgIcon="plus"></mat-icon>
+    </button>
+  </mat-card-actions>
+</mat-card>
+
+

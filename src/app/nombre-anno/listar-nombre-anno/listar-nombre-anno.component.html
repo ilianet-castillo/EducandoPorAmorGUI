@@ -1,0 +1,40 @@
+<mat-card>
+  <mat-card-header>
+    <mat-card-title>Lista de nombres de los años</mat-card-title>
+  </mat-card-header>
+  <mat-card-content>
+    <mat-form-field>
+      <input matInput (keyup)="buscar($event.target.value)" placeholder="Buscar por nombre">
+    </mat-form-field>
+    <mat-icon svgIcon="magnify"></mat-icon>
+    <table>
+      <thead>
+      <tr>
+        <th>Acciones</th>
+        <th>Nombre</th>
+        <th>Habilitado</th>
+      </tr>
+      </thead>
+      <tbody>
+      <tr *ngFor="let nombreAnno of nombresAnnoPaginados">
+        <td>
+          <button mat-icon-button title="Mostrar" (click)="mostrarNombreAnno(nombreAnno)">
+            <mat-icon svgIcon="page-layout-body"></mat-icon>
+          </button>
+        </td>
+        <td>{{nombreAnno.nombre}}</td>
+        <td>{{nombreAnno.habilitado}}</td>
+      </tr>
+      </tbody>
+    </table>
+    <mat-paginator [length]="nombresAnnoFiltrados?.length" [pageSize]="tamannoPagina"
+                   [pageSizeOptions]="opcionesTamannoPagina" [showFirstLastButtons]="true"
+                   (page)="paginar($event)"></mat-paginator>
+  </mat-card-content>
+  <mat-card-actions>
+    <button mat-icon-button title="Adicionar" (click)="adicionarNombreAnno()">
+      <mat-icon svgIcon="plus"></mat-icon>
+    </button>
+  </mat-card-actions>
+</mat-card>
+

@@ -1,0 +1,33 @@
+<mat-card>
+  <mat-card-header>
+    <mat-card-title>Observacion</mat-card-title>
+  </mat-card-header>
+  <mat-card-content>
+    <mat-form-field>
+      <mat-label>Título:</mat-label>
+      <input matInput disabled value="{{observacion?.titulo}}">
+    </mat-form-field>
+    <br>
+    <mat-form-field>
+      <mat-label>Cuerpo:</mat-label>
+      <textarea matInput cdkTextareaAutosize disabled>{{observacion?.cuerpo}}</textarea>
+    </mat-form-field>
+    <br>
+    <label>Respuestas:</label>
+    <div *ngFor="let respuesta of respuestasObservacion">
+      <textarea cdkTextareaAutosize disabled>{{respuesta.cuerpo}}</textarea>
+    </div>
+    <br>
+    <mat-card-actions>
+      <button mat-icon-button title="Eliminar" (click)="eliminarObservacion">
+        <mat-icon svgIcon="minus"></mat-icon>
+      </button>
+      <button mat-icon-button title="Editar" (click)="editarObservacion()">
+        <mat-icon svgIcon="pencil"></mat-icon>
+      </button>
+      <button mat-icon-button title="Salir" (click)="cancelar()">
+        <mat-icon svgIcon="cancel"></mat-icon>
+      </button>
+    </mat-card-actions>
+  </mat-card-content>
+</mat-card>

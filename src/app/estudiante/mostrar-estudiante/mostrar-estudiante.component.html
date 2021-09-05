@@ -1,0 +1,97 @@
+<mat-card>
+  <mat-card-header>
+    <mat-card-title>Estudiante</mat-card-title>
+  </mat-card-header>
+  <mat-card-content>
+    <mat-form-field>
+      <mat-label>Nombre:</mat-label>
+      <input matInput disabled value="{{estudiante?.nombre}}">
+    </mat-form-field>
+    <br>
+    <mat-form-field>
+      <mat-label>Apellidos:</mat-label>
+      <input matInput disabled value="{{estudiante?.apellidos}}">
+    </mat-form-field>
+    <br>
+    <mat-form-field>
+      <mat-label>CI:</mat-label>
+      <input matInput disabled value="{{estudiante?.ci}}">
+    </mat-form-field>
+    <br>
+    <mat-form-field>
+      <mat-label>Solapin:</mat-label>
+      <input matInput disabled value="{{estudiante?.solapin}}">
+    </mat-form-field>
+    <br>
+    <mat-form-field>
+      <mat-label>Telefono:</mat-label>
+      <input matInput disabled value="{{estudiante?.telefono}}">
+    </mat-form-field>
+    <br>
+    <mat-form-field>
+      <mat-label>Sexo:</mat-label>
+      <input matInput disabled value="{{estudiante?.sexo}}">
+    </mat-form-field>
+    <br>
+    <mat-form-field>
+      <mat-label>Direccion Particular:</mat-label>
+      <input matInput disabled value="{{estudiante?.direccionParticular}}">
+    </mat-form-field>
+    <br>
+    <mat-form-field>
+      <mat-label>¿Habilitado?:</mat-label>
+      <input matInput disabled value="{{estudiante?.habilitado}}">
+    </mat-form-field>
+    <br>
+    <mat-form-field>
+      <mat-label>Estado:</mat-label>
+      <input matInput disabled value="{{estudiante?.estado?.nombre}}">
+    </mat-form-field>
+    <br>
+    <mat-form-field>
+      <mat-label>Facultad:</mat-label>
+      <input matInput disabled value="{{estudiante?.facultad?.nombre}}">
+    </mat-form-field>
+    <br>
+    <mat-form-field>
+      <mat-label>Grado Escolar:</mat-label>
+      <input matInput disabled value="{{estudiante?.gradoEscolar?.nombre}}">
+    </mat-form-field>
+    <br>
+    <mat-form-field>
+      <mat-label>Militancia:</mat-label>
+      <input matInput disabled value="{{estudiante?.militancia?.tipo}}">
+    </mat-form-field>
+    <br>
+    <mat-form-field *ngIf="estudiante?.escuela?.nombre">
+      <mat-label>Escuela:</mat-label>
+      <input matInput disabled value="{{estudiante?.escuela?.nombre}}">
+    </mat-form-field>
+    <br>
+    <mat-form-field *ngIf="estudiante?.grupoClase?.grupoDocente">
+      <mat-label>Grupo Docente:</mat-label>
+      <input matInput disabled value="{{estudiante?.grupoClase?.grupoDocente?.nombre + ' <-> ' +
+      estudiante?.grupoClase?.asignatura?.nombre}}">
+    </mat-form-field>
+    <br>
+    <div *ngIf="evaluaciones?.length != 0">
+      <mat-label>Evaluaciones:</mat-label>
+      <div *ngFor="let evaluacion of evaluaciones">
+        <input matInput disabled value="{{formatoFecha(evaluacion.fecha) + ' ' + evaluacion.valorEvaluacion.valor}}">
+      </div>
+    </div>
+    <br>
+    <mat-card-actions>
+      <button mat-icon-button title="Eliminar" (click)="eliminarEstudiante()">
+        <mat-icon svgIcon="minus"></mat-icon>
+      </button>
+      <button mat-icon-button title="Editar" (click)="editarEstudiante()">
+        <mat-icon svgIcon="pencil"></mat-icon>
+      </button>
+      <button mat-icon-button title="Salir" (click)="cancelar()">
+        <mat-icon svgIcon="cancel"></mat-icon>
+      </button>
+    </mat-card-actions>
+  </mat-card-content>
+</mat-card>
+

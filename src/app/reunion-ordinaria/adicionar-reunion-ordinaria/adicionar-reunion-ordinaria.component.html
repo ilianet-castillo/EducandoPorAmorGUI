@@ -1,0 +1,88 @@
+<mat-card>
+  <mat-card-header>
+    <mat-card-title>Adicionar Reunión Ordinaria</mat-card-title>
+  </mat-card-header>
+  <mat-card-content>
+    <form [formGroup]="addForm" (ngSubmit)="onSubmit()">
+      <mat-form-field>
+        <mat-label>Titulo:</mat-label>
+        <input matInput type="text" formControlName="titulo" autocomplete="off" required>
+      </mat-form-field>
+      <br>
+      <mat-form-field>
+        <mat-label>Fecha:</mat-label>
+        <input matInput [matDatepicker]="picker" formControlName="fecha" readonly required>
+        <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+        <mat-datepicker #picker></mat-datepicker>
+      </mat-form-field>
+      <br>
+      <mat-form-field>
+        <mat-label>Lugar:</mat-label>
+        <input matInput type="text" formControlName="lugar" autocomplete="off" required>
+      </mat-form-field>
+      <br>
+      <mat-form-field>
+        <mat-label>Hora:</mat-label>
+        <input matInput type="time" formControlName="hora" step="1" autocomplete="off" required>
+      </mat-form-field>
+      <br>
+      <mat-form-field>
+        <mat-label>Asistencia de estudiantes:</mat-label>
+        <input matInput type="number" formControlName="asistenciaEstudiantes" autocomplete="off" required>
+      </mat-form-field>
+      <br>
+      <mat-form-field>
+        <mat-label>Orden del dia:</mat-label>
+        <textarea matInput cdkTextareaAutosize #autosize="cdkTextareaAutosize" cdkAutosizeMinRows="1"
+                  cdkAutosizeMaxRows="5" formControlName="ordenDelDia" required></textarea>
+      </mat-form-field>
+      <br>
+      <mat-form-field>
+        <mat-label>Cuerpo:</mat-label>
+        <textarea matInput cdkTextareaAutosize #autosize="cdkTextareaAutosize" cdkAutosizeMinRows="1"
+                  cdkAutosizeMaxRows="5" formControlName="cuerpo" required></textarea>
+      </mat-form-field>
+      <br>
+      <mat-form-field>
+        <mat-label>Acuerdos:</mat-label>
+        <textarea matInput cdkTextareaAutosize #autosize="cdkTextareaAutosize" cdkAutosizeMinRows="1"
+                  cdkAutosizeMaxRows="5" formControlName="acuerdos" required></textarea>
+      </mat-form-field>
+      <br>
+      <mat-form-field>
+        <mat-label>Finalizacion:</mat-label>
+        <textarea matInput cdkTextareaAutosize #autosize="cdkTextareaAutosize" cdkAutosizeMinRows="1"
+                  cdkAutosizeMaxRows="5" formControlName="finalizacion" required></textarea>
+      </mat-form-field>
+      <br>
+      <mat-form-field>
+        <mat-label>Profesores visitantes:</mat-label>
+        <select matNativeControl formControlName="profesores" multiple="multiple" cdkAutosizeMinRows="1"
+                cdkAutosizeMaxRows="5" required>
+          <option *ngFor="let profesor of profesores" [ngValue]="profesor" [hidden]="!profesor.habilitado">
+            {{profesor.nombre}}
+          </option>
+        </select>
+      </mat-form-field>
+      <br>
+      <mat-form-field>
+        <mat-label>Provincia:</mat-label>
+        <select matNativeControl formControlName="provincia" required>
+          <option *ngFor="let provincia of provincias" [ngValue]="provincia"
+                  [hidden]="!provincia.habilitado">{{provincia.nombre}}
+          </option>
+        </select>
+      </mat-form-field>
+      <br>
+      <mat-card-actions>
+        <button mat-raised-button title="Crear">
+          <mat-icon svgIcon="check"></mat-icon>
+        </button>
+        <button mat-raised-button title="Cancelar" (click)="cancelar()">
+          <mat-icon svgIcon="cancel"></mat-icon>
+        </button>
+      </mat-card-actions>
+    </form>
+  </mat-card-content>
+</mat-card>
+

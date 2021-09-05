@@ -1,0 +1,28 @@
+<mat-card>
+  <mat-card-header>
+    <mat-card-title>Grado escolar</mat-card-title>
+  </mat-card-header>
+  <mat-card-content>
+    <mat-form-field>
+      <mat-label>Nombre:</mat-label>
+      <input matInput disabled value="{{gradoEscolar?.nombre}}">
+    </mat-form-field>
+    <br>
+    <mat-form-field>
+      <mat-label>¿Habilitado?:</mat-label>
+      <input matInput disabled value="{{gradoEscolar?.habilitado}}">
+    </mat-form-field>
+    <br>
+    <mat-card-actions>
+      <button mat-icon-button title="Eliminar" (click)="eliminarGradoEscolar()">
+        <mat-icon svgIcon="minus"></mat-icon>
+      </button>
+      <button mat-icon-button title="Editar" (click)="editarGradoEscolar()">
+        <mat-icon svgIcon="pencil"></mat-icon>
+      </button>
+      <button mat-icon-button title="Salir" (click)="cancelar()">
+        <mat-icon svgIcon="cancel"></mat-icon>
+      </button>
+    </mat-card-actions>
+  </mat-card-content>
+</mat-card>

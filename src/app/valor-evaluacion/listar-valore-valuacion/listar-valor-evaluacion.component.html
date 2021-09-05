@@ -1,0 +1,39 @@
+<mat-card>
+  <mat-card-header>
+    <mat-card-title>Lista de Valores de Evaluaciones</mat-card-title>
+  </mat-card-header>
+  <mat-card-content>
+    <mat-form-field>
+      <input matInput (keyup)="buscar($event.target.value)" placeholder="Buscar por nombre">
+    </mat-form-field>
+    <mat-icon svgIcon="magnify"></mat-icon>
+    <table>
+      <thead>
+      <tr>
+        <th>Acciones</th>
+        <th>Nombre</th>
+        <th>Habilitado</th>
+      </tr>
+      </thead>
+      <tbody>
+      <tr *ngFor="let valorEvaluacion of valoresEvaluacionPaginados">
+        <td>
+          <button mat-icon-button title="Mostrar" (click)="mostrarValorEvaluacion(valorEvaluacion)">
+            <mat-icon svgIcon="page-layout-body"></mat-icon>
+          </button>
+        </td>
+        <td>{{valorEvaluacion.valor}}</td>
+        <td>{{valorEvaluacion.habilitado}}</td>
+      </tr>
+      </tbody>
+    </table>
+    <mat-paginator [length]="valoresEvaluacionFiltrados?.length" [pageSize]="tamannoPagina"
+                   [pageSizeOptions]="opcionesTamannoPagina" [showFirstLastButtons]="true"
+                   (page)="paginar($event)"></mat-paginator>
+  </mat-card-content>
+  <mat-card-actions>
+    <button mat-icon-button title="Adicionar" (click)="adicionarValorEvaluacion()">
+      <mat-icon svgIcon="plus"></mat-icon>
+    </button>
+  </mat-card-actions>
+</mat-card>

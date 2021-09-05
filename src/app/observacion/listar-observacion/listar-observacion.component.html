@@ -1,0 +1,38 @@
+<mat-card>
+  <mat-card-header>
+    <mat-card-title>Lista de observación</mat-card-title>
+  </mat-card-header>
+  <mat-card-content>
+    <mat-form-field>
+      <input matInput (keyup)="buscar($event.target.value)" placeholder="Buscar por nombre">
+    </mat-form-field>
+    <mat-icon svgIcon="magnify"></mat-icon>
+    <table>
+      <thead>
+      <tr>
+        <th>Acciones</th>
+        <th>Titulo</th>
+      </tr>
+      </thead>
+      <tbody>
+      <tr *ngFor="let observacion of observacionesPaginadas">
+        <td>
+          <button mat-icon-button title="Mostrar" (click)="mostrarObservacion(observacion)">
+            <mat-icon svgIcon="page-layout-body"></mat-icon>
+          </button>
+        </td>
+        <td>{{observacion.titulo}}</td>
+      </tr>
+      </tbody>
+    </table>
+    <mat-paginator [length]="observacionesFiltradas?.length" [pageSize]="tamannoPagina"
+                   [pageSizeOptions]="opcionesTamannoPagina" [showFirstLastButtons]="true"
+                   (page)="paginar($event)"></mat-paginator>
+  </mat-card-content>
+  <mat-card-actions>
+    <button mat-icon-button title="Adicionar" (click)="adicionarObservacion()">
+      <mat-icon svgIcon="plus"></mat-icon>
+    </button>
+  </mat-card-actions>
+</mat-card>
+

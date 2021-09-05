@@ -1,0 +1,58 @@
+<mat-card>
+  <mat-card-header>
+    <mat-card-title>Estudiante</mat-card-title>
+  </mat-card-header>
+  <mat-card-content>
+    <mat-form-field>
+      <mat-label>Nombre:</mat-label>
+      <input matInput disabled value="{{profesor?.nombre}}">
+    </mat-form-field>
+    <br>
+    <mat-form-field>
+      <mat-label>Apellidos:</mat-label>
+      <input matInput disabled value="{{profesor?.apellidos}}">
+    </mat-form-field>
+    <br>
+    <mat-form-field>
+      <mat-label>Categoria Cientifica:</mat-label>
+      <input matInput disabled value="{{profesor?.categoriaCientifica}}">
+    </mat-form-field>
+    <br>
+    <mat-form-field>
+      <mat-label>Teléfono:</mat-label>
+      <input matInput disabled value="{{profesor?.telefono}}">
+    </mat-form-field>
+    <br>
+    <mat-form-field>
+      <mat-label>Sexo:</mat-label>
+      <input matInput disabled value="{{profesor?.sexo}}">
+    </mat-form-field>
+    <br>
+    <mat-form-field>
+      <mat-label>Correo Electrónico:</mat-label>
+      <input matInput disabled value="{{profesor?.correoElectronico}}">
+    </mat-form-field>
+    <br>
+    <mat-form-field>
+      <mat-label>¿Habilitado?:</mat-label>
+      <input matInput disabled value="{{profesor?.habilitado}}">
+    </mat-form-field>
+    <br>
+    <mat-form-field>
+      <mat-label>Facultad:</mat-label>
+      <input matInput disabled value="{{profesor?.facultad?.nombre}}">
+    </mat-form-field>
+    <br>
+    <mat-card-actions>
+      <button mat-icon-button title="Eliminar" (click)="eliminarProfesor()">
+        <mat-icon svgIcon="minus"></mat-icon>
+      </button>
+      <button mat-icon-button title="Editar" (click)="editarProfesor()">
+        <mat-icon svgIcon="pencil"></mat-icon>
+      </button>
+      <button mat-icon-button title="Salir" (click)="cancelar()">
+        <mat-icon svgIcon="cancel"></mat-icon>
+      </button>
+    </mat-card-actions>
+  </mat-card-content>
+</mat-card>

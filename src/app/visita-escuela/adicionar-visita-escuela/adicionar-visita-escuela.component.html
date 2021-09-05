@@ -1,0 +1,93 @@
+<mat-card>
+  <mat-card-header>
+    <mat-card-title>Adicionar Visita a Escuela</mat-card-title>
+  </mat-card-header>
+  <mat-card-content>
+    <form [formGroup]="addForm" (ngSubmit)="onSubmit()">
+      <mat-form-field>
+        <mat-label>Provincia:</mat-label>
+        <select matNativeControl formControlName="provincia" required>
+          <option *ngFor="let provincia of provincias" [ngValue]="provincia" [hidden]="!provincia.habilitado">
+            {{provincia.nombre}}
+          </option>
+        </select>
+      </mat-form-field>
+      <br>
+      <mat-form-field>
+        <mat-label>Fecha:</mat-label>
+        <input matInput [matDatepicker]="picker" formControlName="fecha" readonly required>
+        <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+        <mat-datepicker #picker></mat-datepicker>
+      </mat-form-field>
+      <br>
+      <mat-form-field>
+        <mat-label>Nombre del año:</mat-label>
+        <select matNativeControl formControlName="nombreAnno" required>
+          <option *ngFor="let nombreanno of nombreAnnos" [ngValue]="nombreanno" [hidden]="!nombreanno.habilitado">
+            {{nombreanno.nombre}}
+          </option>
+        </select>
+      </mat-form-field>
+      <br>
+      <mat-form-field>
+        <mat-label>Escuela:</mat-label>
+        <select matNativeControl formControlName="escuela" required>
+          <option *ngFor="let escuela of escuelas" [ngValue]="escuela" [hidden]="!escuela.habilitado">
+            {{escuela.nombre}}
+          </option>
+        </select>
+      </mat-form-field>
+      <br>
+      <mat-form-field>
+        <mat-label>Estudiantes:</mat-label>
+        <select matNativeControl formControlName="estudiantes" multiple="multiple" cdkAutosizeMinRows="1"
+                cdkAutosizeMaxRows="5" required>
+          <option *ngFor="let estudiante of estudiantes" [ngValue]="estudiante" [hidden]="!estudiante.habilitado">
+            {{estudiante.nombre + ' ' + estudiante.apellidos}}
+          </option>
+        </select>
+      </mat-form-field>
+      <br>
+      <mat-form-field>
+        <mat-label>Cuerpo:</mat-label>
+        <textarea matInput cdkTextareaAutosize #autosize="cdkTextareaAutosize" cdkAutosizeMinRows="1"
+                  cdkAutosizeMaxRows="5" formControlName="cuerpo" required></textarea>
+      </mat-form-field>
+      <br>
+      <mat-form-field>
+        <mat-label>Observacion:</mat-label>
+        <select matNativeControl formControlName="observacion" required>
+          <option *ngFor="let observacion of observaciones" [ngValue]="observacion">{{observacion.titulo}}</option>
+        </select>
+      </mat-form-field>
+      <br>
+      <mat-form-field>
+        <mat-label>Nombre del directivo:</mat-label>
+        <input matInput type="string" formControlName="nombreDirectivo" autocomplete="off" required>
+      </mat-form-field>
+      <br>
+      <mat-form-field>
+        <mat-label>Cargo:</mat-label>
+        <input matInput type="string" formControlName="cargo" autocomplete="off" required>
+      </mat-form-field>
+      <br>
+      <mat-form-field>
+        <mat-label>Profesor:</mat-label>
+        <select matNativeControl formControlName="profesor" required>
+          <option *ngFor="let profesor of profesores" [ngValue]="profesor" [hidden]="!profesor.habilitado">
+            {{profesor.nombre}}
+          </option>
+        </select>
+      </mat-form-field>
+      <br>
+      <mat-card-actions>
+        <button mat-raised-button title="Crear">
+          <mat-icon svgIcon="check"></mat-icon>
+        </button>
+        <button mat-raised-button title="Cancelar" (click)="cancelar()">
+          <mat-icon svgIcon="cancel"></mat-icon>
+        </button>
+      </mat-card-actions>
+    </form>
+  </mat-card-content>
+</mat-card>

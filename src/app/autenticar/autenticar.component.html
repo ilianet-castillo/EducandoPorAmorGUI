@@ -1,0 +1,35 @@
+<mat-card>
+  <mat-card-header>
+    <mat-card-title>Autenticar</mat-card-title>
+  </mat-card-header>
+  <mat-card-content>
+    <form [formGroup]="autenticarForm" (ngSubmit)="onSubmit()">
+      <mat-form-field>
+        <mat-label>Usuario:</mat-label>
+        <input matInput type="text" formControlName="usuario" name="usuario" autocomplete="off">
+        <div
+          *ngIf="autenticarForm.controls['usuario'].hasError('required') && autenticarForm.controls['usuario'].touched">
+          El usuario es requerido
+        </div>
+      </mat-form-field>
+      <br>
+      <mat-form-field>
+        <mat-label>Contraseña:</mat-label>
+        <input matInput [type]="hide ? 'password' : 'text'" formControlName="contrasenna" autocomplete="off">
+        <div
+          *ngIf="autenticarForm.controls['contrasenna'].hasError('required') && autenticarForm.controls['contrasenna'].touched">
+          La contraseña es requerida
+        </div>
+      </mat-form-field>
+      <mat-icon svgIcon="{{hide ? 'eye-off' : 'eye'}}" matSuffix (click)="hide = !hide"
+                title="{{hide ? 'Ocultar' : 'Mostrar'}} + ' contraseña'"></mat-icon>
+      <br>
+      <mat-card-actions>
+        <button class="btn btn-success" [disabled]="autenticarForm.invalid">Entrar</button>
+      </mat-card-actions>
+      <div *ngIf="autenticacionInvalida">
+        <div>Credenciales incorrectas.</div>
+      </div>
+    </form>
+  </mat-card-content>
+</mat-card>
